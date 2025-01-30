@@ -1,0 +1,46 @@
+{
+    "spaces": [
+      {
+        "name": "Private Office",
+        "location": "Nairobi",
+        "price": 50,
+        "availability": true
+      },
+      {
+        "name": "Meeting Room",
+        "location": "Mombasa",
+        "price": 30,
+        "availability": true
+      },
+      {
+        "name": "Coworking Desk",
+        "location": "Kisumu",
+        "price": 20,
+        "availability": true
+      },
+      {
+        "name": "Open Workspace",
+        "location": "Dar es Salaam",
+        "price": 15,
+        "availability": false
+      }
+    ],
+    "memberships": [
+      {
+        "name": "Basic",
+        "price": 10,
+        "features": "Access to shared spaces"
+      },
+      {
+        "name": "Premium",
+        "price": 50,
+        "features": "Private office, fast WiFi"
+      },
+      {
+        "name": "Elite",
+        "price": 100,
+        "features": "24/7 access, VIP lounge, unlimited coffee"
+      }
+    ]
+  }
+  
