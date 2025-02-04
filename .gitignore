@@ -1,0 +1,12 @@
+
+.env
+.env.local
+.env.* 
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+Pipfile.lock
+.venv/
+.virtualenvs/
