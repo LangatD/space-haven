@@ -10,19 +10,22 @@
         "name": "Meeting Room",
         "location": "Mombasa",
         "price": 30,
-        "availability": true
+        "availability": true,
+        "image_path": "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       },
       {
         "name": "Coworking Desk",
         "location": "Kisumu",
         "price": 20,
-        "availability": true
+        "availability": true,
+        "image_path":"https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       },
       {
         "name": "Open Workspace",
         "location": "Dar es Salaam",
         "price": 15,
-        "availability": false
+        "availability": false,
+        "image_path":"https://images.pexels.com/photos/7688173/pexels-photo-7688173.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       }
     ],
     "memberships": [
