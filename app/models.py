@@ -5,9 +5,7 @@ import re
 from app import db, bcrypt
 
 
-# ------------------------------
-# ✅ Membership Model (Fix: Explicit Foreign Key)
-# ------------------------------
+
 class Membership(db.Model):
     __tablename__ = 'memberships'
 
@@ -16,20 +14,18 @@ class Membership(db.Model):
     price = db.Column(db.Float, nullable=False)
     features = db.Column(db.Text, nullable=True)
 
-    # Relationship: One Membership → Many Users
     users = db.relationship("User", back_populates="membership")
     
-# ------------------------------
-# ✅ User Model (Fix: Add `membership_id` Foreign Key)
-# ------------------------------
+
+
 class User(db.Model):
     __tablename__ = 'users'
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password_hash = db.Column(db.String(200), nullable=False)  # ✅ Store hashed password correctly
-    membership_id = db.Column(db.Integer, db.ForeignKey("memberships.id"), nullable=True)  # Foreign Key
+    password_hash = db.Column(db.String(200), nullable=False)  
+    membership_id = db.Column(db.Integer, db.ForeignKey("memberships.id"), nullable=True)  
     membership = db.relationship("Membership", back_populates="users")
     # Relationship: One user can have many bookings
     bookings = db.relationship("Booking", backref="user", lazy=True, cascade="all, delete-orphan")
@@ -49,11 +45,8 @@ class User(db.Model):
 
     def check_password(self, password):
         """Check hashed password"""
-        return bcrypt.check_password_hash(self.password_hash, password)  # ✅ Correct password check
-
-# ------------------------------
-# ✅ Space Model (Coworking Spaces)
-# ------------------------------
+        return bcrypt.check_password_hash(self.password_hash, password)  
+    
 class Space(db.Model):
     __tablename__ = 'spaces'
     
@@ -66,9 +59,7 @@ class Space(db.Model):
     # Relationship: A space can have many bookings
     bookings = db.relationship("Booking", backref="space", lazy=True, cascade="all, delete-orphan")
     
-# ------------------------------
-# ✅ Booking Model (Reservations)
-# ------------------------------
+
 class Booking(db.Model):
     __tablename__ = 'bookings'
 

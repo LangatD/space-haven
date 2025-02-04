@@ -16,9 +16,10 @@ def create_app():
     app.config.from_object("config.Config")
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "super-secret")
     jwt = JWTManager(app)
-    print("Database URI:", app.config.get("SQLALCHEMY_DATABASE_URI"))  # Debugging
+    print("Database URI:", app.config.get("SQLALCHEMY_DATABASE_URI"))  
 
-    CORS(app,resources={r"/api/*": {"origins": ["https://space-haven-react.vercel.app/"]}}, supports_credentials=True)
+    #CORS(app,resources={r"/api/*": {"origins": ["https://space-haven-react.vercel.app/"]}}, supports_credentials=True)
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
