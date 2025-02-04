@@ -6,6 +6,7 @@ from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, JWTManager
 
+
 db = SQLAlchemy()
 migrate = Migrate()
 bcrypt = Bcrypt()
@@ -17,7 +18,7 @@ def create_app():
     jwt = JWTManager(app)
     print("Database URI:", app.config.get("SQLALCHEMY_DATABASE_URI"))  # Debugging
 
-    CORS(app)
+    CORS(app,resources={r"/api/*": {"origins": ["https://smart-coding-system.vercel.app"]}}, supports_credentials=True)
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
