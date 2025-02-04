@@ -19,7 +19,7 @@ def create_app():
     print("Database URI:", app.config.get("SQLALCHEMY_DATABASE_URI"))  
 
     #CORS(app,resources={r"/api/*": {"origins": ["https://space-haven-react.vercel.app/"]}}, supports_credentials=True)
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
+    CORS(app, resources={r"/api/*": {"origins": "*", "allow_headers":"*", "expose_headers":"*", "supports_credentials": True}})
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
